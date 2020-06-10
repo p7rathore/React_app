@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -10,9 +10,9 @@ class App extends Component {
     //     <h1> Hii, I'm a React App</h1>
     //   </div>
     // );
-    return (
-      React.createElement('div',{className: "App"}, React.createElement('h1', null, 'Dose this work now?'))
-      );
+    // return (React.createElement('div', null, 'h1','hello')); //o/p: h1hello
+    // return (React.createElement('div', null, React.createElement("h1", null, 'hello'))); // o/p: hello
+    return (React.createElement('div',{className: 'App'}, React.createElement('h1', null, 'hello')))//o/p: it's print at center b/c class is put
   }  
 
 }
