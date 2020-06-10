@@ -4,9 +4,8 @@ import React from 'react'
 // }
 
 
-const person = () => {// it's a ES6 Arrow function 
-    // return <p> I'm a Person Math.floor(Math.random() * 30) year old!</p> // o/p same as tex  t
-    return <p> I'm a Person {Math.floor(Math.random()* 30)} year old!</p> // it's right way   
+const person = (props) => { // in function component {props} and in class component {this.props.name}
+    return <p> I'm a {props.name} and I am {props.age} year old!</p>
 };
 
 export default person;
