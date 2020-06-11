@@ -29,7 +29,8 @@ class App extends Component {
 	}
 
 	deletePersonHandler = (personIndex) => {
-		const persons = this.state.persons;
+		// const persons = this.state.persons.slice(); // old featuer
+		const persons = [...this.state.persons] // es6 provide spread operator(...)
 		persons.splice(personIndex, 1);
 		this.setState({persons: persons});  
 	}
