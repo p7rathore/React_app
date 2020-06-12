@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 // import logo from './logo.svg';
-import Person from './Person/Person.js'
+import Person from './Person/Person.js';
+import Radium from 'radium';
 import './App.css';
 
 class App extends Component {
@@ -54,7 +55,11 @@ class App extends Component {
 			font: 'inherit',
 			bordor: '1px solid blue',
 			padding: '8px',
-			cursor: 'pointer'
+			cursor: 'pointer',
+			':hover':{            // it's a sudo selector use after install Radium pkg
+				backgroundColor: 'lightgreen',
+				color: 'black'
+			}
 		}
 		let persons = null;
 		if (this.state.showPersons){
@@ -72,6 +77,10 @@ class App extends Component {
 				</div>
 			);	
 			style.backgroundColor = 'red';
+			style[':hover'] = {
+				backgroundColor: "salmon",
+				color: 'black'
+			}
 		}
 
 		// const classes = ["red", 'bold'].join(' ')// "red bold"
@@ -95,4 +104,4 @@ class App extends Component {
   	}  
 }
 
-export default App;
+export default Radium(App);
