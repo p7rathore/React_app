@@ -16,7 +16,8 @@ class App extends Component {
 	
 	nameChangedHandler = (event, id) => {
 		const personIndex = this.state.persons.findIndex(person => {
-			return person.id === id
+			// return person.id === id
+			return person.userId === id // for testing logical error
 		});
 
 		//const person = this.state.persons[personIndex] this not right approch
@@ -30,7 +31,6 @@ class App extends Component {
 		person.name = event.target.value
 
 		const persons = [...this.state.persons]
-		console.log(persons)
 		persons[personIndex] = person
 
 		this.setState({persons: persons});
