@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 // import logo from './logo.svg';
-import Person from '../components/Persons/Person/Person.js';
+import Persons from '../components/Persons/Persons';
 import Radium, {StyleRoot} from 'radium';
 import './App.css';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
 	state = {
@@ -63,17 +64,11 @@ class App extends Component {
 		let persons = null;
 		if (this.state.showPersons){
 			persons= (
-				<div>
-					{this.state.persons.map((person, index) => {
-						return <Person 
-									click = {() => this.deletePersonHandler(index)}
-									name= {person.name} 
-									age={person.age}
-									changed={(event) => this.nameChangedHandler(event,person.id)}
-									key={person.id}
-								/>
-					})}
-				</div>
+				<Persons 
+					persons= {this.state.persons}
+					clicked= {this.deletePersonHandler}
+					changed= {this.nameChangedHandler} 
+				/>
 			);	
 			style.backgroundColor = 'red';
 			style[':hover'] = {
@@ -82,22 +77,15 @@ class App extends Component {
 			}
 		}
 
-		// const classes = ["red", 'bold'].join(' ')// "red bold"
-		const assignClasses= [];
-		if(this.state.persons.length <= 2){
-			assignClasses.push('red');
-		}
-		if(this.state.persons.length <=1){
-			assignClasses.push('bold');
-		}
-
-
 		return (
 			<StyleRoot>
 				<div className = "App" >
-					<h1> Hii, I'm a React App</h1>
-					<p className={assignClasses.join(' ')}>This is really working</p>
-					<button style={style} onClick= {this.togglePersonsHandler}>Toggle Persons</button>
+					<Cockpit
+						persons= {this.state.persons}
+						showPersons= {this.showPersons}
+						clicked= {this.togglePersonsHandler} 
+						style= {style}
+					/>
 					{persons}
 				</div>
 			</StyleRoot>
