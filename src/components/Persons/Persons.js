@@ -13,6 +13,25 @@ class Persons extends Component {
         console.log("[Persons.js] inside componentDidMount()")
     }
 
+    componentWillReceiveProps(nextProps) {
+        console.log("[UPDATE Persons.js] inside componentWillReceiveProps()", nextProps)
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("[UPDATE Persons.js] inside shouldComponentUpdate()","nextProps====", nextProps,"nextStat------", nextState)
+        // return false; // its means not delete person recorde when you click means not chenge props and state
+        // return true; // when write true then delete person record when you click means props and state update
+        return nextProps.persons !== this.props.persons// it's right way in place of return true it's work same as return true
+    }
+
+    componentWillUpdate() {
+        console.log("[UPDATE Persons.js] inside componentWillUPdate()")
+    }
+
+    componentDidUpdate() {
+        console.log("[UPDATE Persons.js] inside componentDidUpdate()")
+    }
+
     render(){
         console.log("[persons.js] inside render()")
         return this.props.persons.map((person, index)=>{
