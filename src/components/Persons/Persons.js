@@ -24,8 +24,8 @@ class Persons extends Component {
         return nextProps.persons !== this.props.persons// it's right way in place of return true it's work same as return true
     }
 
-    componentWillUpdate() {
-        console.log("[UPDATE Persons.js] inside componentWillUPdate()")
+    componentWillUpdate(nextProps, nextState) {
+        console.log("[UPDATE Persons.js] inside componentWillUPdate()", nextProps, nextState)
     }
 
     componentDidUpdate() {
