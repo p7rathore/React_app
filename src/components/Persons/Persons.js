@@ -1,7 +1,7 @@
-import React, { Component} from 'react'
+import React, { PureComponent} from 'react'
 import Person from './Person/Person'
 
-class Persons extends Component { 
+class Persons extends PureComponent { 
     constructor(props){
         super(props)
         console.log("[Persons.js] inside constructor()")
@@ -17,12 +17,13 @@ class Persons extends Component {
         console.log("[UPDATE Persons.js] inside componentWillReceiveProps()", nextProps)
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log("[UPDATE Persons.js] inside shouldComponentUpdate()","nextProps====", nextProps,"nextStat------", nextState)
-        // return false; // its means not delete person recorde when you click means not chenge props and state
-        // return true; // when write true then delete person record when you click means props and state update
-        return nextProps.persons !== this.props.persons// it's right way in place of return true it's work same as return true
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log("[UPDATE Persons.js] inside shouldComponentUpdate()","nextProps====", nextProps,"nextStat------", nextState)
+    //     return nextProps.persons !== this.props.persons ||
+    //         nextProps.chaged !== this.props.changed ||
+    //         nextProps.clicked !== this.props.clicked;
+    //     // return true
+    // }
 
     componentWillUpdate(nextProps, nextState) {
         console.log("[UPDATE Persons.js] inside componentWillUPdate()", nextProps, nextState)
