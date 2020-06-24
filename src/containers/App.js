@@ -6,14 +6,27 @@ import './App.css';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-	state = {
-		persons: [
-			{id: 'a1', name:"Piyush", age: 23},
-			{id: 'a2', name:"Deepak", age: 25},
-			{id: 'a3', name: "Raj", age: 21}
-		],
-		showPersons: false
+	constructor(props){
+		super(props)
+		this.state={
+			persons: [
+				{id: 'a1', name: 'Piyush', age: 23},
+				{id: 'a2', name: 'Deepak', age: 25},
+				{id: "a3", name: 'Raj', age: 21}
+			],
+			showPersons: false
+		}
+		console.log("[App.js] inside constructor()", props)
 	}
+
+	componentWillMount() {
+		console.log("[App.js] inside componentWillMount()")
+	}
+
+	componentDidMount() {
+		console.log("[App.js] inside componentDidMount")
+	}
+
 	
 	nameChangedHandler = (event, id) => {
 		const personIndex = this.state.persons.findIndex(person => {
@@ -49,6 +62,7 @@ class App extends Component {
 	}
 
 	render(){
+		console.log("[App.js] inside render()")
 		const style = {
 			backgroundColor: 'green',
 			color: 'white',

@@ -1,8 +1,22 @@
 import React, { Component} from 'react';
 import './Person.css';
 import Radium from 'radium';
-class Person extends Component { 
+class Person extends Component {
+    constructor(props){
+        super(props)
+        console.log("[Person.js] inside constructor()")
+    }
+
+    componentWillMount() {
+        console.log("[Person.js] inside componentWillMount()")
+    }
+
+    componentDidMount() {
+        console.log("[Person.js] inside componentDidMount()")
+    }
+
     render(){
+        console.log("[Person.js] inside render()")
         const style = {
             '@media(min-width: 500px)':{
                 width: '450px'
