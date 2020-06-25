@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import './Person.css';
 import Radium from 'radium';
+import WithClass from '../../hoc/WithClass'
 class Person extends Component {
     constructor(props){
         super(props)
@@ -23,11 +24,13 @@ class Person extends Component {
             }
         }
         return (
-                <div className="Person" style={style}> 
+                // <div className="Person" style={style}> 
+                <WithClass classes="Person">
                     <p onClick={this.props.click}> I'm a {this.props.name} and I am {this.props.age} year old!</p>
                     <p>{this.props.children}</p>
                     <input type="text" onChange={this.props.changed} value={this.props.name}/>
-                </div>    
+                {/* </div>     */}
+                </WithClass>
             );
             // return [
             //     <p key='1' onClick={this.props.click}> I'm a {this.props.name} and I am {this.props.age} year old!</p>,
