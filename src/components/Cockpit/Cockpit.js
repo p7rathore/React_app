@@ -1,6 +1,7 @@
 import React from 'react';
 import Radium, {StyleRoot} from 'radium';
 import './Cockpit.css'
+import Aux from '.././hoc/Aux';
 
 const cockpit = (props) => {
     // const classes = ["red", 'bold'].join(' ')// "red bold"
@@ -12,12 +13,19 @@ const cockpit = (props) => {
         assignClasses.push('bold');
     }
 
+    // return(
+    //     <div>
+    //         <h1> {props.appTitle}</h1>
+    //         <p className={assignClasses.join(' ')}>Tis is really working</p>
+    //         <button style={props.style} onClick= {props.clicked}>Toggle Persons</button>            
+    //     </div>    
+    // );
     return(
-        <div>
+        <Aux>
             <h1> {props.appTitle}</h1>
             <p className={assignClasses.join(' ')}>Tis is really working</p>
             <button style={props.style} onClick= {props.clicked}>Toggle Persons</button>            
-        </div>    
+        </Aux>    
     );
 }
 
