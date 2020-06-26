@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import './Person.css';
 import Radium from 'radium';
+import PropTypes from 'prop-types'
 import withClass from '../../hoc/withClass'
 import Aux from '../../hoc/Aux'
 class Person extends Component {
@@ -42,5 +43,12 @@ class Person extends Component {
             // ]
     }
 };
+
+Person.propTypes = {
+    click: PropTypes.func,
+    name: PropTypes.string, // if wirte incorrect props type then appication show warning
+    age: PropTypes.number,
+    changed: PropTypes.func
+};    
  
 export default Radium(withClass(Person, "Person"));
